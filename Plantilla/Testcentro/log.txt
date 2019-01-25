@@ -1,0 +1,171 @@
+ 
+# Input file name #                           
+Control file name                           : Cntrl\Cal.txt                 
+Fault parameter file name                   : Cntrl\fault.txt               
+Option file name                            : Cntrl\option.txt              
+Input file folder                           : C:\Testcentro\Input\                                                                                
+
+
+# Option #                                    
+Number of OpenMP threads                    :         4
+Acceleration of gravity                     :   9.80665
+Earth radius                                :6378136.00
+Bot/Top/Lef/Rig (rf:0,open:1,sin:2,file:3)  :      1111 0
+Constant depth (for benchmark)              :       0.0
+Amplitude of sine-wave (meter)              :      0.00
+Period of sine-wave    (sec)                :      0.00
+Duration of sine-wave  (sec)                :      0.00
+Truncation error of fortran program         :   0.00010
+Truncation error of water area in Linear-eq :  10.00000
+Limit depth of dispersion                   :   0.01000
+Limit depth for linear-equation             :   1.00000
+Limit of inundation height                  :    -100.0
+Limit of curernt velocity                   :      20.0
+Limit depth for current velocity            :   0.10000
+Limit of the fault depth                    : 500.00000
+Truncation error of the fault deformation   :   0.05000
+Truncation error of log(X)                  :  10.00000
+Output  file format (real parameter)        : (10000F10.3)                  
+Output file format (integer parameter)      : (10000I5)                     
+Extention of output files (nc/grd/dat)      : grd
+Start value for additional diffusion term   :    0.43000
+Start value for wave breaking               :    0.59000
+End value for wave breaking                 :    0.39000
+Coefficient of additional diffusion term ALF:    0.10000
+Viscosity coefficient of wave breaking BETA :    0.23000
+ 
+# LANDSLIDE SIMULATION #                      
+Landslide simulation (ON:1, OFF:0)          :          0
+ 
+# DEBRIS SIMULATION #                         
+Debris Simulation (OFF:0 ON:1)              :          0
+ 
+# BOULDER SIMULATION #                        
+Boulder Simulation (OFF:0 ON:1)             :          0
+ 
+# Projected coordinate system #               
+Index (User-definition:0, UTM-ZONE: 1--60)  :         0
+Ellipsoid parameter (0:GRS80 1:Bessel)      :    1
+Central_Meridian (real**8)                  :   0.00000
+Latitude of Origin (real**8)                :   0.00000
+Scale factor (0:0.9996 1:0.9999)            :    0
+
+
+ 
+# Numerical condition #
+ 
+Number of joint regions                     :         1
+Calculation time (sec)                      :   9200.00
+ 
+******* LAYER 01 *******                          
+Dispersive term (Yes:1, No:0)               :         0
+Nonlinear term  (Yes:1, No:0)               :         1
+Manning coefficient                         :   0.02500
+Map of the Manning coefficient              :*                             
+Data file format                            :*                             
+Coefficient of eddy viscosity               :   0.00000
+Advective term (1st:0, cent:1, 2nd:2, 3rd:3):         0
+Start Grid in x-direction                   :         1
+Start Grid in y-direction                   :         1
+Total Grid size in x-direction              :      1020
+Total Grid size in y-direction              :       840
+Coordinate  (0:Meter, 1:Lat and long)       :         1
+Spatial Grid Size                           :     1.000
+Temporal Grid Size  (sec)                   :     2.000
+Lower left corner (Lon)                     :   -94.000
+Lower left corner (Lat)                     :     5.000
+Tide level (m)                              :     0.000
+File Name of Bathymetry Data                :gebco30seccentro.grd          
+Data file format                            : *                            
+Land data is (+) and Sea is (-) (Yes:1)     :         0
+Ground change by fault deformation          :         0
+Restart - Water level file                  : *                            
+Restart - Ground change file                : *                            
+Restart - X-flux file                       : *                            
+Restart - Y-flux file                       : *                            
+Restart - Still-water level                 : *                            
+Restart - Data file format                  : *                            
+Output file folder                          :C:\Testcentro\Output\                                                                               
+Output value (Elv/Dph/Flx/Vel/Hpr/Max)      : Elv/Max                       
+Snapshots (Time step;interval,start,end)    :        20         0         0
+Tide gauges (Time step;interval,start,end)  :         2         0         0
+Contour level for wave propagation (sec.)   :  1200.000
+Tide gauge (0:Grid number, 1:Lat and long)  :         1
+Tide gauge number                           :         1
+     XP(N)     YP(N)
+  274.2370   10.7620
+Number of seawalls                          :         0
+       X-Grid       Y-Grid       X or Y  Wall height
+ 
+Number of discharge                         :         0
+       X-Grid       Y-Grid  X-Flow rate  Y-Flow rate
+ 
+ 
+ *** Adjustment of the numerical domain and the origin ***
+ 
+ *** Size of numerical domains ***
+ Layer -  1
+ IMAX = 1020 JMAX =  840
+ 
+ *** CFL condition ***
+ - Region 1
+ Maximum wave velocity:    355.99   dx/dt:    924.13
+ 
+ **** Fault Model ****
+Number of faults             :       1
+Horizontal effect(No:0,Yes:1):       0
+ 
+ --- Fault 01 ---                                  
+Grid number(0),Lat and lon(1):              1
+Origin of fault (long)       :        273.280
+Origin of fault (lat)        :         11.640
+Rupture time (sec)           :          0.000
+Depth (m)                    :      14280.260
+Slip  (m)                    :          5.000          0.000
+Dip                          :         45.000
+Strike                       :        303.830
+Slip angle                   :         90.000
+Fault length                 :      90157.000
+Fault width                  :      46238.000
+Cal. area (degree or meter)  :  100000000.000
+Layer -  1
+        i0        j0
+       438       399
+        is        ie        js        je
+         1      1020         1       840
+ ZMAX:    2.14
+ ZMIN:   -0.15
+ 
+ *** Rupture time ***
+  1 rupture
+ Fault number  Time step
+            1          0
+ 
+ *** Locations of the revised bathmetry data at boundary ***
+ left i=   1 j= 660
+ left i=   1 j= 796
+ up i= 167 j= 840
+ up i= 168 j= 840
+  L=   4
+ 
+ *** CFL condition ***
+ - Region 1
+ Maximum wave velocity:    355.99   dx/dt:    924.13
+ 
+ *** Grid numbers less than 5 m ground level ***
+LAYER: 1    651393/    856800
+ 
+- LAYER: 1
+    1  168  168
+  169  363  195
+  364  581  218
+  582  840  259
+ 
+ *** Grid numbers for the dispersive model ***
+ 
+ 
+ *** Locations of tide gauges *** 
+ No.    i    j     DEPTH
+  1   495  346    27.281
+ 
+ [Main calculation]

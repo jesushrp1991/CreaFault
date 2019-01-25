@@ -1,0 +1,71 @@
+# OPTION # ----------------------------------------------------------------------+
+--- OpenMP ----------------------------------------------------------------------+
+Number of OpenMP threads                    : 4
+---------------------------------------------------------------------------------+
+--- CONSTANT PARAMETERS ---------------------------------------------------------+
+Acceleration of gravity                     : 9.80665
+Earth's radius                              : 6378136.0
+---------------------------------------------------------------------------------+
+--- BOUNDARY --------------------------------------------------------------------+
+Bot/Top/Lef/Rig (rf:0,open:1,sin:2,file:3)  : 1111
+File name of an input waveform              : 
+---------------------------------------------------------------------------------+
+--- TEST CALCULATION ------------------------------------------------------------+
+Constant depth (nonuse : 0.0e)              : 0.0
+Amplitude of sine-wave (meter)              : 0.0
+Period of sine-wave    (sec)                : 00.0
+Duration of sine-wave  (sec)                : 00.0
+---------------------------------------------------------------------------------+
+--- TRUNCATION ERROR FOR THE SIMULATION -----------------------------------------+
+Truncation error of Fortran program         : 1.0E-04
+Truncation depth of water area for Linear-eq: 10.0
+Limit depth for dispersion                  : 0.01
+Limit depth for linear-equation             : 1.0
+Limit of inundation height                  : -100.0
+Limit of current velocity                   : 20.0
+Limit depth for current velocity            : 0.1
+---------------------------------------------------------------------------------+
+--- TRUNCATION ERROR FOR THE FAULT MODEL ----------------------------------------+
+Limit of the fault depth                    : 500.0
+Truncation error of the fault deformation   : 0.05
+Truncation error of log(X)                  : 10.0
+---------------------------------------------------------------------------------+
+--- OUTPUT FORMAT ---------------------------------------------------------------+
+Fortran format (real parameter)             : (10000F10.3)
+Fortran format (integer parameter)          : (10000I5)
+Extention of output files (dat/grd/nc)      : grd/nc
+---------------------------------------------------------------------------------+
+--- WAVE BREAKING ---------------------------------------------------------------+
+Start value for additional diffusion term   : 0.43
+Start value for wave breaking               : 0.59
+End value for wave breaking                 : 0.39
+Coefficient of additional diffusion term ALF: 0.1
+Viscosity coefficient of wave breaking BETA : 0.23
+---------------------------------------------------------------------------------+
+# Landslide Simulation #---------------------------------------------------------+
+Landslide simulation (ON:1, OFF:0)          : 0
+Landslide simulation file                   : 
+---------------------------------------------------------------------------------+
+# Debris Simulation #------------------------------------------------------------+
+Debris simulation (ON:1, OFF:0)             : 0
+Debris simulation file                      : 
+---------------------------------------------------------------------------------+
+# Boulder Simulation #-----------------------------------------------------------+
+Boulder simulation (ON:1, OFF:0)            : 0
+Boulder simulation file                     : 
+---------------------------------------------------------------------------------+
+# Projected coordinate system #--------------------------------------------------+
+--- UNIVERSAL TRANSVERSE MERCATOR -----------------------------------------------+
+Index (User-definition:0, UTM-ZONE: 1-60)   : 0
+Ellipsoid parameter (0:GRS80 1:Bessel)      : 1
+---------------------------------------------------------------------------------+
+--- USER-DEFINITION -------------------------------------------------------------+
+Central_Meridian (real**8)                  : 0.0d0
+Latitude of Origin (real**8)                : 0.0d0
+Scale Factor (0:0.9996 1:0.9999)            : 0
+---------------------------------------------------------------------------------+
+
+
+
+# Format of this text
+========== COMMENT SPACE (45rows)  =========:-- PARAMETER SPACE (30rows) --|========== COMMENT SPACE  ==========

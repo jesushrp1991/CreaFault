@@ -1,0 +1,87 @@
+reset
+
+##############################################################################
+# STEP1 Change directory (Drag "Output" folder and drop into gnuplot window) #
+# STEP2 Change parameters below                                              #
+# STEP3 Select Color palette                                                 #
+# STEP4 Select 3D or 2D                                                      #
+# STEP5 Save this file                                                       #
+# STEP6 Drag "this file" and drop into gnuplot                               #
+##############################################################################
+
+### Parameters ########################################################
+
+ out=1          # Output file (nothing=0,png=1,eps=2)
+ lid=1          # Layer ID
+
+ itv=20           # interval of output files
+ nm =121           # Number of files
+
+ dt=3            # Time step (sec)
+ dx=1/60      # Special grid size (degree)
+ GX=-90       # Origin of x-axis  (degree)
+ GY=9.0        # Origin of y-axis  (degree)
+
+ xmax=420          # Total grid size of X direction
+ xmin=0         #
+ ymax=360          # Total grid size of Y direction
+ ymin=0         #
+ ticsX=50       # Interval of x-tics
+ ticsY=50       # Interval of y-tics
+
+ cmax=2.0       # Color range:Maximum value
+ cmin=-2.0      # Color range:Minimum value
+
+ ans=0.7      # animation speed
+
+#### Color palette ###################################################################
+
+ # set palette rgbformulae 22,13,-31
+ # set palette rgbformulae 33,13,10
+ # set palette defined(0 "white",1 "light-blue",2 "blue",3 "dark-blue")
+  set palette defined(0 "dark-blue",1 "blue",2 "white",3 "red",4 "dark-red")
+
+#### 3D ###################################################################
+
+ D3 = 0           # 2D => 0, 3D => 1
+ zmax = 2.0       # Maximum z range
+ zmin =-2.0       # Minimum z range
+
+### script ##########################################################################
+
+ if (out==0) set terminal wxt
+ if (out==1) set terminal png
+ if (out==2) set terminal postscript eps enhanced color 
+
+ if (D3 == 0) set pm3d map corners2color c4
+ if (D3 == 0) zmax=100000.0
+ if (D3 == 0) zmin=-100000.0
+ set size ratio -1.0
+ set nokey
+ set cbrange [cmin:cmax]
+ set zrange [zmin:zmax]
+ set xrange [xmin:xmax-1]
+ set yrange [ymax-1:ymin]
+ set xtics ticsX
+ set ytics ticsY
+ unset grid
+
+if (exist("n")==0 || n<0) n=0   
+
+ nn=sprintf("Time = %5.2f (min)",n*dt*itv/60.0)
+ set title nn
+
+ if (out==1) set output "Z".(1000000*lid+(n)*itv).".png"
+ if (out==2) set output "Z".(1000000*lid+(n)*itv).".eps"
+
+ fn = "gnu_sl".lid.".txt"		# Filename of shorelines
+ 
+ splot "Z".(10000000*lid+(n)*itv).".dat" matrix using 1:2:3 with pm3d, \
+       fn using (($1-GX)/dx-1):(ymax-($2-GY)/dx):3 with lines lt -1
+
+if (n<nm-1) pause ans; n=n+1; reread        #
+
+n=-1
+unset output
+quit
+#end of script

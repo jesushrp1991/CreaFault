@@ -1,0 +1,131 @@
+# Numerical condition # ---------------------------------------------------------+
+Number of layers                            : 1
+Calculation time (sec)                      : 9200.0
+---------------------------------------------------------------------------------+
+
+******* LAYER 01 *****************************************************************
+--- EQUATION --------------------------------------------------------------------+
+Dispersive term (Yes:1, No:0)               : 0
+Nonlinear term  (Yes:1, No:0)               : 1
+Manning coefficient                         : 0.025
+Map of the Manning coefficient              : *
+Data file format                            : *
+Coefficient of eddy viscosity               : 0.0
+Advective term (1st:0, cent:1, 2nd:2, 3rd:3): 0
+---------------------------------------------------------------------------------+
+--- GRID ------------------------------------------------------------------------+
+Start Grid in x-direction                   : 1
+Start Grid in y-direction                   : 1
+Total Grid size in x-direction              : 1020
+Total Grid size in y-direction              : 840
+Coordinate  (0:Cartesian, 1:Spherical)      : 1
+Spatial Grid Size   (Meter or Minute)       : 1.0
+Time Grid Size  (sec)                       : 2.0
+---------------------------------------------------------------------------------+
+--- INPUT DATA ------------------------------------------------------------------+
+Coordinate of the lower left corner (Lon)   : -94
+Coordinate of the lower left corner (Lat)   : 5
+Tide level (m)                              : 0.0
+File Name of Bathymetry Data                :gebco30seccentro.grd
+Data file format                            : *
+Land data is (+) and Sea is (-) (Yes:1)     : 0
+Ground change by fault deformation          : 0
+Restart - Water level file                  : *
+        - Ground change file                : *
+        - X-flux file                       : *
+        - Y-flux file                       : *
+        - Still-water level                 : *
+        - Data file format                  : *
+---------------------------------------------------------------------------------+
+--- OUTPUT ----------------------------------------------------------------------+
+Output file folder                          : Output\
+Output value (Elv/Dph/Flx/Vel/Hpr/Max)      : Elv/Max
+Snapshots   (Time step;interval,start,end)  : 20
+Tide gauges (Time step;interval,start,end)  : 2
+Contour level for wave propagation (sec)    : 1200
+Tide gauge  (0:Grid number, 1:Lat and long) : 1
+Location of tide gauges (X, Y)
+START
+-92.252	14.521
+-92.199	14.475
+-91.954	14.258
+-91.681	14.095
+-91.546	14.018
+-91.163	13.739
+-90.791	13.803
+-90.396	13.790
+-90.192	13.676
+-89.950	13.508
+-89.686	13.410
+-89.396	13.350
+-89.199	13.335
+-88.997	13.108
+-88.610	12.982
+-88.164	12.975
+-87.879	12.936
+-87.822	13.381
+-87.323	12.977
+-87.586	12.662
+-87.424	12.505
+-87.333	12.426
+-87.258	12.353
+-87.131	12.252
+-86.960	12.137
+-86.849	12.035
+-86.755	11.915
+-86.618	11.681
+-86.244	11.444
+-85.912	11.225
+-85.774	11.063
+-85.949	10.482
+-85.751	9.980
+-85.215	9.630
+-85.120	9.555
+-84.867	9.757
+-84.660	9.771
+-84.625	9.482
+-84.216	9.386
+-83.679	8.924
+-83.659	8.448
+-83.361	8.381
+-83.192	8.427
+-82.996	8.224
+-82.915	8.012
+-82.820	8.258
+-82.375	7.906
+-81.830	8.098
+-81.685	7.974
+-81.412	7.662
+-81.094	7.459
+-80.986	7.236
+-80.615	7.217
+-80.184	7.342
+-79.994	7.702
+-79.961	8.041
+-80.033	8.349
+-79.856	8.528
+-79.354	8.570
+-78.653	8.694
+-78.774	8.108
+-78.362	8.107
+-78.477	8.021
+-78.405	7.856
+-78.202	7.534
+-78.044	7.373
+-77.892	7.205
+
+
+
+END
+---------------------------------------------------------------------------------+
+--- SEAWALL ---------------------------------------------------------------------+
+Parameters for seawall (X, Y, Position of wall(right:1 or top:2), Wall height)
+START
+END
+---------------------------------------------------------------------------------+
+--- RIVER FLOW ------------------------------------------------------------------+
+Parameters (X, Y, Flow angle(counterclockwise), River flow rate from one grid)
+START
+END
+---------------------------------------------------------------------------------+
+

@@ -1,0 +1,71 @@
+reset
+
+##############################################################################
+# STEP1 Change directory (Drag "Output" folder and drop into gnuplot window) #
+# STEP2 Change parameters below                                              #
+# STEP3 Select Color palette                                                 #
+# STEP4 Save this file                                                       #
+# STEP5 Drag "this file" and drop into gnuplot                               #
+##############################################################################
+
+### Parameters ########################################################
+
+ fn ='ZMAX'         # ZMAX:Maximum tsunami height
+ out=0              # Output file (nothing=0,png=1,eps=2)
+ lid=1              # Layer ID
+
+ GX =-90          # Origin of x-axis  (degree)
+ GY =9             # Origin of y-axis  (degree)
+ ds =1/60.0       # Special grid size (degree) : x/60
+
+ xmax=420            # Total grid size of X direction
+ xmin=0             #
+ ymax=360             # Total grid size of Y direction
+ ymin=0             #
+ ticsX=50             # Interval of x-tics
+ ticsY=50           # Interval of y-tics
+
+ cmax=6.0              # Color range:Maximum value
+ cmin=0              # Color range:Minimum value
+
+#### Color palette ###################################################################
+
+ # set palette rgbformulae 22,13,-31
+ # set palette rgbformulae 33,13,10
+ # set palette defined(0 "white",1000 "light-blue",2000 "blue",3000 "dark-blue")
+ # set palette defined(0 "dark-blue",1 "blue",2 "white",3 "red",4 "dark-red")
+ set palette defined(-1 "white",0 "#8000ff",1000 "#1996f3",2000 "#4df3ce",3000 "#b2f396",4000 "#ff964f",5000 "#ff0000")
+
+
+### script ##########################################################################
+
+ if (out==0) set terminal wxt
+ if (out==1) set terminal png
+ if (out==2) set terminal postscript eps enhanced color
+
+ set size ratio -1.0
+ set pm3d map corners2color c4
+ set nokey
+ set cbrange [cmin:cmax]
+ set zrange [-10000:10000]
+ set xrange [xmin:xmax-1]
+ set yrange [ymax-1:ymin]
+ set xtics ticsX
+ set ytics ticsY
+ unset grid  
+
+ if (out==1) set output fn.lid.".png"
+ if (out==2) set output fn.lid.".eps"
+
+ fn1 = fn.lid.".dat"
+ fn2 = "gnu_sl".lid.".txt"		# Filename of shorelines
+ GX = (GX < 0) ? 360-GX:GX
+
+ splot fn1 matrix using 1:2:3 with pm3d, \
+       fn2 using (($1-GX)/ds-1):(ymax-($2-GY)/ds):3 with lines lt -1
+ 
+ # if (out > 0) set terminal wxt
+ # if (out > 0) splot fn.lid.".dat" matrix using 1:2:3 with pm3d
+
+#reset
+#end of script

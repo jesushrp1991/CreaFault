@@ -1,0 +1,10 @@
+# Input file name # -------------------------------------------------------------+
+Control file                                : Cntrl\Cal.txt
+Fault parameter file                        : Cntrl\fault.txt
+Option file                                 : Cntrl\option.txt
+Input file folder                           : Input\
+---------------------------------------------------------------------------------+
+
+
+# Format of this text
+========== COMMENT SPACE (45rows)  =========:-- PARAMETER SPACE (30rows) --|========== COMMENT SPACE =========

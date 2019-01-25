@@ -1,0 +1,69 @@
+# Numerical condition # ---------------------------------------------------------+
+Number of layers                            : 1
+Calculation time (sec)                      : 7200.0
+---------------------------------------------------------------------------------+
+
+******* LAYER 01 *****************************************************************
+--- EQUATION --------------------------------------------------------------------+
+Dispersive term (Yes:1, No:0)               : 0
+Nonlinear term  (Yes:1, No:0)               : 0
+Manning coefficient                         : 0.025
+Map of the Manning coefficient              : *
+Data file format                            : *
+Coefficient of eddy viscosity               : 0.0
+Advective term (1st:0, cent:1, 2nd:2, 3rd:3): 0
+---------------------------------------------------------------------------------+
+--- GRID ------------------------------------------------------------------------+
+Start Grid in x-direction                   : 1
+Start Grid in y-direction                   : 1
+Total Grid size in x-direction              : 1080
+Total Grid size in y-direction              : 840
+Coordinate  (0:Cartesian, 1:Spherical)      : 1
+Spatial Grid Size   (Meter or Minute)       : 1
+Time Grid Size  (sec)                       : 3.0
+---------------------------------------------------------------------------------+
+--- INPUT DATA ------------------------------------------------------------------+
+Coordinate of the lower left corner (Lon)   : -94
+Coordinate of the lower left corner (Lat)   : 6
+Tide level (m)                              : 0.0
+File Name of Bathymetry Data                : depth1.nc
+Data file format                            : *
+Land data is (+) and Sea is (-) (Yes:1)     : 0
+Ground change by fault deformation          : 0
+Restart - Water level file                  : *
+        - Ground change file                : *
+        - X-flux file                       : *
+        - Y-flux file                       : *
+        - Still-water level                 : *
+        - Data file format                  : *
+---------------------------------------------------------------------------------+
+--- OUTPUT ----------------------------------------------------------------------+
+Output file folder                          : Output\
+Output value (Elv/Dph/Flx/Vel/Hpr/Max)      : Elv/Max
+Snapshots   (Time step;interval,start,end)  : 20
+Tide gauges (Time step;interval,start,end)  : 2
+Contour level for wave propagation (sec)    : 1200
+Tide gauge  (0:Grid number, 1:Lat and long) : 1
+Location of tide gauges (X, Y)
+START
+-92.252	14.521
+-92.199	14.475
+-91.954	14.258
+-91.681	14.095
+-91.546	14.018
+-91.163	13.739
+
+
+END
+---------------------------------------------------------------------------------+
+--- SEAWALL ---------------------------------------------------------------------+
+Parameters for seawall (X, Y, Position of wall(right:1 or top:2), Wall height)
+START
+END
+---------------------------------------------------------------------------------+
+--- RIVER FLOW ------------------------------------------------------------------+
+Parameters (X, Y, Flow angle(counterclockwise), River flow rate from one grid)
+START
+END
+---------------------------------------------------------------------------------+
+

@@ -1,0 +1,25 @@
+
+# Initial Water Elevation #
+Index for Initial condition  : 1
+(0:Nonuse)     
+(1;Fault parameter)
+(2;Read data)
+(3;Gaussian distribution)
+
+# Fault parameter #
+Number of faults             : 1
+Horizontal effect(No:0,Yes:1): 0
+
+--- Fault 01 ---
+Cartesian => 0,Spherical => 1: 1
+Fault origin (lon or x-grid) : -87.7
+Fault origin (lat or y-grid) : 10.8
+Rupture time (sec)           : 0.0
+Depth (m)                    : 5000.0
+Slip  (m)                    : 7.48 
+Dip                          : 9.60
+Strike                       : 315.80
+Slip angle                   : 106.90
+Fault length                 : 100000.0
+Fault width                  : 52000.0
+Cal. area (m)                : 0.10E+09

@@ -1,0 +1,112 @@
+reset
+
+##############################################################################
+# STEP1 Change directory (Drag "Output" folder and drop into gnuplot window) #
+# STEP2 Change parameters below                                              #
+# STEP3 Select Color palette                                                 #
+# STEP4 Select 3D or 2D                                                      #
+# STEP5 Save this file                                                       #
+# STEP6 Drag "this file" and drop into gnuplot                               #
+##############################################################################
+
+### Parameters ########################################################
+
+lyn   = 1 				# Layer ID
+jnt   = 4 				# Total layer number
+imax  =420  				# Total grid number of x-axis
+jmax  =360				# Total grid number of y-axis
+
+axis  = 1				# 0:Grid number, 1:Spherical or Cartesian
+dx    = 1.0/60				# Delta x of this graph (meter or degree)
+
+GX    =-90				# Origin of x-axis
+GY    =9				# Origin of y-axis
+
+nx = 2					# Interval of x-tics
+ny = 2					# Interval of y-tics
+ft = "Arial,8" 			# Font of all labels 
+
+farea = 1
+fhd   = 0
+fvd   = 0
+fc = 0.1					# Scale factor for vectors
+# set term gif
+# set out "test.gif"
+
+
+######################################################################
+######################################################################
+######################################################################
+
+
+fn1 = "gnu_ns".lyn.".txt"		# Filename of shorelines
+fn2 = "gnu_sl".lyn.".txt"		# Filename of shorelines
+fn3 = "gnu_sw".lyn.".txt"		# Filename of seawalls
+fn4 = "gnu_wg".lyn.".txt"		# Filename of wave gauges
+fn5 = "gnu_fa".lyn.".txt"		# Filename of vertical fault displacement
+fn6 = "gnu_dfh".lyn.".txt"		# Filename of horizontal fault displacement
+fn7 = "gnu_dfv".lyn.".txt"		# Filename of vertical fault displacement
+
+jnt1=jnt-lyn-1
+jnt2=jnt-lyn
+
+ds = (axis == 0) ? dx:1.0
+dx = (axis == 0) ? 1.0:dx
+
+### Axis ###
+
+set size ratio -1.0 #-0.908
+show size
+set grid
+
+  xx = (axis == 0) ? 0.0 : GX
+  yy = (axis == 0) ? 0.0 : GY
+
+# X-axis #
+a = imax*dx + xx
+set xrange [xx:a]                       # Range of x-axis
+set xtics xx,nx                         # Start and Interval of x-axis
+set xlabel "x-axis" # 0.0,0.0             # Label of x-axis; position (X,Y)
+
+# Y-axis #
+b = jmax*dx + yy
+set yrange [yy:b]                       # Range of y-axis
+set ytics yy,ny                         # Start and Interval of y-axis
+set ylabel "y-axis" # 1.0,0.0            # Label of y-axis; position (X,Y)
+
+
+### Legend ###
+set key bottom                          # left, right, top, bottom, outside, below, unset key
+# set key box
+# set title " "
+
+
+### Font ### 
+set tics    font ft 
+set ylabel  font ft
+set xlabel  font ft
+set key     font ft
+
+### Make figure ###
+
+  xx = (axis == 0) ? GX : 0.0
+  yy = (axis == 0) ? GY : 0.0
+
+  plot                fn2 using (($1-xx)/ds):(($2-yy)/ds) with lines lt  1                 notitle,\
+                      fn3 using (($1-xx)/ds):(($2-yy)/ds) with lines lt  2   lw 3          notitle,\
+       for [k=0:jnt2] fn4 index k  using (($1-xx)/ds):(($2-yy)/ds)   lt 0+k pt 7           title "Wave gauge of Layer ".(k+lyn)
+replot for [i=0:jnt1] fn1 index i using (($1-xx)/ds):(($2-yy)/ds) with lines lt 7          notitle
+
+ if (farea == 1) \
+ replot              fn5 using (($1-xx)/ds):(($2-yy)/ds) with lines   lt  7                notitle
+ if (fhd == 1) \
+ replot              fn6 using (($1-xx)/ds):(($2-yy)/ds):($3*fc):($4*fc) with vector lt  4 lw 2 title "Horizontal fault displacement"
+ if (fvd == 1) \
+ replot              fn7 using (($1-xx)/ds):(($2-yy)/ds):($3*fc):($4*fc) with vector lt  5 lw 2 title "Vertical fault displacement"
+
+
+
+# pt => 1:{ 2:~ 3:– 4:  5:¡ 6:› 7:œ 8:¢ 9:£ 10:¤ 11:¥ 12:ž 13:Ÿ 
+# lt => 1: red 2: yellow-green 3: blue 4: pink 5: lignt blue 6: yellow 7: black 8: orange 9: grey
+#  with filledc
+#                      fn7 using ($1/ds):($2/ds) with filledc lt  9                notitle,\
